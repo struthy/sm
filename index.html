@@ -24,8 +24,8 @@
 
     <main id="mainContent" role="main">
       <section class="container">
-        <div class="steppedInfo flex">
-          <div class="steppedInfo__image-col flex">
+        <div class="grid flex">
+          <div class="grid__image-col flex">
             <picture>
               <!--[if IE 9]><video style="display: none;"><![endif]-->
               <source
@@ -44,17 +44,17 @@
               <img />
             </picture>
           </div>
-          <div class="steppedInfo__text-col flex">
-            <span class="steppedInfo__pre">Pre-Title</span>
-            <h2 class="steppedInfo__heading">Stepped information</h2>
+          <div class="grid__text-col flex">
+            <span class="pre-title">Pre-Title</span>
+            <h2>Stepped information</h2>
 
-            <ul class="steppedInfo__accordion-container js-accordion-container">
-              <li class="js-accordion steppedInfo__accordion">
+            <ul class="accordion__container js-accordion-container">
+              <li class="js-accordion accordion__accordion">
                 <button
-                  class="js-accordion-btn steppedInfo__accordion-btn"
+                  class="js-accordion-btn accordion__btn"
                   aria-label="open accordion"
                 >
-                  <span class="js-toggle-icon steppedInfo__accordion-toggle">
+                  <span class="js-toggle-icon accordion__toggle">
                     <svg class="icon icon-plus">
                       <use
                         xlink:href="dist/spritemap.svg#sprite-icon-plus"
@@ -72,14 +72,12 @@
                     </svg>
                   </span>
 
-                  <span class="steppedInfo__accordion-description"
+                  <span class="accordion__description"
                     >Lorem ipsum dolor si</span
                   >
                 </button>
 
-                <div
-                  class="js-accordion-content steppedInfo__accordion-content"
-                >
+                <div class="js-accordion-content accordion__content">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipis cing elit,
                     sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
@@ -87,12 +85,12 @@
                   </p>
                 </div>
               </li>
-              <li class="js-accordion steppedInfo__accordion">
+              <li class="js-accordion accordion__accordion">
                 <button
-                  class="js-accordion-btn steppedInfo__accordion-btn"
+                  class="js-accordion-btn accordion__btn"
                   aria-label="open accordion"
                 >
-                  <span class="js-toggle-icon steppedInfo__accordion-toggle">
+                  <span class="js-toggle-icon accordion__toggle">
                     <svg class="icon icon-plus">
                       <use
                         xlink:href="dist/spritemap.svg#sprite-icon-plus"
@@ -110,14 +108,12 @@
                     </svg>
                   </span>
 
-                  <span class="steppedInfo__accordion-description"
+                  <span class="accordion__description"
                     >Lorem ipsum dolor si</span
                   >
                 </button>
 
-                <div
-                  class="js-accordion-content steppedInfo__accordion-content"
-                >
+                <div class="js-accordion-content accordion__content">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipis cing elit,
                     sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
@@ -125,12 +121,12 @@
                   </p>
                 </div>
               </li>
-              <li class="js-accordion steppedInfo__accordion">
+              <li class="js-accordion accordion__accordion">
                 <button
-                  class="js-accordion-btn steppedInfo__accordion-btn"
+                  class="js-accordion-btn accordion__btn"
                   aria-label="open accordion"
                 >
-                  <span class="js-toggle-icon steppedInfo__accordion-toggle">
+                  <span class="js-toggle-icon accordion__toggle">
                     <svg class="icon icon-plus">
                       <use
                         xlink:href="dist/spritemap.svg#sprite-icon-plus"
@@ -148,14 +144,12 @@
                     </svg>
                   </span>
 
-                  <span class="steppedInfo__accordion-description"
+                  <span class="accordion__description"
                     >Track your drinking to help maintain change</span
                   >
                 </button>
 
-                <div
-                  class="js-accordion-content steppedInfo__accordion-content"
-                >
+                <div class="js-accordion-content accordion__content">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipis cing elit,
                     sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
@@ -163,12 +157,12 @@
                   </p>
                 </div>
               </li>
-              <li class="js-accordion steppedInfo__accordion">
+              <li class="js-accordion accordion__accordion">
                 <button
-                  class="js-accordion-btn steppedInfo__accordion-btn"
+                  class="js-accordion-btn accordion__btn"
                   aria-label="open accordion"
                 >
-                  <span class="js-toggle-icon steppedInfo__accordion-toggle">
+                  <span class="js-toggle-icon accordion__toggle">
                     <svg class="icon icon-plus">
                       <use
                         xlink:href="dist/spritemap.svg#sprite-icon-plus"
@@ -186,14 +180,203 @@
                     </svg>
                   </span>
 
-                  <span class="steppedInfo__accordion-description"
+                  <span class="accordion__description"
                     >Lorem ipsum dolor si</span
                   >
                 </button>
 
-                <div
-                  class="js-accordion-content steppedInfo__accordion-content"
+                <div class="js-accordion-content accordion__content">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipis cing elit,
+                    sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
+                    ame.
+                  </p>
+
+                  <p>
+                    <a class="link" href="#"
+                      >read more
+                      <svg class="icon">
+                        <use
+                          xlink:href="dist/spritemap.svg#sprite-icon-arrow"
+                        ></use>
+                      </svg>
+                    </a>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- second variation -->
+      <section class="container">
+        <div class="grid flex">
+          <div class="grid__image-col grid__image-col--40 flex">
+            <picture>
+              <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source
+                srcset="src/img/image-1@3x.jpg"
+                media="(min-width: 1050px)"
+              />
+              <source
+                srcset="src/img/image-1@2x.jpg"
+                media="(min-width: 768px))"
+              />
+              <source srcset="dist/img/image-1.jpg" media="(min-width: 0)" />
+              <!--[if IE 9]></video><![endif]-->
+              <img />
+            </picture>
+          </div>
+          <div class="grid__text-col grid__image-col--60 flex">
+            <span class="pre-title">Pre-Title</span>
+            <h2>Stepped information</h2>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              varius, dui vel rutrum malesuada, metus augue dignissim eros,
+            </p>
+            <ul
+              class="accordion__container accordion__container--50 js-accordion-container"
+            >
+              <li
+                class="js-accordion accordion__accordion accordion__accordion--50"
+              >
+                <button
+                  class="js-accordion-btn accordion__btn"
+                  aria-label="open accordion"
                 >
+                  <span class="js-toggle-icon accordion__toggle">
+                    <svg class="icon icon-plus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-plus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-minus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-minus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-arrow">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-arrow"
+                      ></use>
+                    </svg>
+                  </span>
+
+                  <span class="accordion__description"
+                    >Lorem ipsum dolor si</span
+                  >
+                </button>
+
+                <div class="js-accordion-content accordion__content">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipis cing elit,
+                    sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
+                    amet.
+                  </p>
+                </div>
+              </li>
+              <li class="js-accordion accordion__accordion accordion--50">
+                <button
+                  class="js-accordion-btn accordion__btn"
+                  aria-label="open accordion"
+                >
+                  <span class="js-toggle-icon accordion__toggle">
+                    <svg class="icon icon-plus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-plus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-minus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-minus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-arrow">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-arrow"
+                      ></use>
+                    </svg>
+                  </span>
+
+                  <span class="accordion__accordion-description"
+                    >Lorem ipsum dolor si</span
+                  >
+                </button>
+
+                <div class="js-accordion-content accordion__content">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipis cing elit,
+                    sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
+                    amet.
+                  </p>
+                </div>
+              </li>
+              <li class="js-accordion accordion__accordion accordion--50">
+                <button
+                  class="js-accordion-btn accordion__accordion-btn"
+                  aria-label="open accordion"
+                >
+                  <span class="js-toggle-icon accordion__toggle">
+                    <svg class="icon icon-plus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-plus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-minus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-minus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-arrow">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-arrow"
+                      ></use>
+                    </svg>
+                  </span>
+
+                  <span class="accordion__description"
+                    >Track your drinking to help maintain change</span
+                  >
+                </button>
+
+                <div class="js-accordion-content accordion__content">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipis cing elit,
+                    sed do eiusmod tempor incididunt ut lorem ipsum dolor sit
+                    amet.
+                  </p>
+                </div>
+              </li>
+              <li class="js-accordion accordion__accordion accordion--50">
+                <button
+                  class="js-accordion-btn accordion__btn"
+                  aria-label="open accordion"
+                >
+                  <span class="js-toggle-icon accordion__toggle">
+                    <svg class="icon icon-plus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-plus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-minus">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-minus"
+                      ></use>
+                    </svg>
+                    <svg class="icon icon-arrow">
+                      <use
+                        xlink:href="dist/spritemap.svg#sprite-icon-arrow"
+                      ></use>
+                    </svg>
+                  </span>
+
+                  <span class="accordion__description"
+                    >Lorem ipsum dolor si</span
+                  >
+                </button>
+
+                <div class="js-accordion-content accordion__content">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipis cing elit,
                     sed do eiusmod tempor incididunt ut lorem ipsum dolor sit

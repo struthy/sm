@@ -1,0 +1,14 @@
+h1 {
+}
+
+h2 {
+  @include title-md;
+}
+
+.pre-title {
+  @include title-xs;
+}
+
+.lead {
+  @include intro;
+}

@@ -1,0 +1,38 @@
+.grid {
+  padding: 56px 0;
+  @include breakpoint(tablet) {
+    padding: 128px 0;
+  }
+  &__image-col {
+    display: none;
+    @include breakpoint(small-desktop) {
+      display: flex;
+      flex: 1 1 50%;
+      justify-content: center;
+
+      picture {
+        max-width: 284px;
+      }
+    }
+
+    &--40 {
+      flex: 1 1 40%;
+    }
+  }
+
+  &__text-col {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    @include breakpoint(small-desktop) {
+      display: flex;
+      flex: 1 1 50%;
+      align-items: flex-start;
+    }
+
+    &--60 {
+      flex: 1 1 60%;
+    }
+  }
+}
