@@ -1,0 +1,227 @@
+.steppedInfo {
+  padding: 56px 0;
+  @include breakpoint(tablet) {
+    padding: 128px 0;
+  }
+  &__image-col {
+    display: none;
+    @include breakpoint(small-desktop) {
+      display: flex;
+      flex: 1 1 50%;
+      justify-content: center;
+
+      img {
+        transform: scale(0.45);
+        transform-origin: top;
+      }
+    }
+  }
+
+  &__text-col {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    @include breakpoint(small-desktop) {
+      display: flex;
+      flex: 1 1 50%;
+      align-items: flex-start;
+    }
+  }
+
+  &__pre {
+    font-size: 1.2rem;
+    letter-spacing: 0.2px;
+    line-height: 1.33;
+    color: $color-i;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    color: $color-black;
+    font-size: 2.2rem;
+    line-height: 1.36;
+    @include breakpoint(tablet) {
+      font-size: 3.6rem;
+      line-height: 1.33;
+    }
+  }
+
+  &__accordion-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__accordion {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 60px;
+    &:before {
+      content: " ";
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      background-color: #dee6ef;
+      z-index: 1;
+      top: 0;
+      left: 3px;
+      @include breakpoint(tablet) {
+        left: 18px;
+      }
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: $color-highlight;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      border-radius: 100%;
+      @include breakpoint(tablet) {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      flex: 1 1 1px;
+      &:before {
+        height: 50%;
+        @include breakpoint(tablet) {
+          height: 80%;
+        }
+      }
+    }
+  }
+
+  &__accordion-btn {
+    padding: 0 40px 0 40px;
+    display: flex;
+    flex: 1 1 100%;
+    align-items: center;
+    border: 0;
+    outline: 0;
+    background-color: $color-page-background;
+    justify-content: space-between;
+    flex-direction: row;
+    @include breakpoint(tablet) {
+      padding: 0 40px 0 80px;
+      &:hover {
+        cursor: pointer;
+        .steppedInfo__accordion-description {
+          text-decoration: underline;
+          text-decoration-color: $color-highlight;
+        }
+      }
+    }
+  }
+
+  &__accordion-toggle {
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    display: flex;
+    height: 36px;
+    width: 36px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $color-page-background;
+    @include breakpoint(tablet) {
+      left: 0;
+      right: auto;
+      z-index: 3;
+      border-radius: 100%;
+      box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.07),
+        0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+    .icon {
+      height: 12px;
+      width: 12px;
+      fill: $color-black;
+    }
+
+    .icon-arrow {
+      display: none;
+      fill: $color-highlight;
+      @include breakpoint(tablet) {
+        display: flex;
+      }
+    }
+
+    .icon-minus {
+      display: none;
+      @include breakpoint(tablet) {
+        display: none;
+      }
+    }
+
+    .icon-plus {
+      @include breakpoint(tablet) {
+        display: none;
+      }
+    }
+
+    &.icon-open {
+      .icon-plus {
+        display: none;
+      }
+      .icon-minus {
+        display: flex;
+        @include breakpoint(tablet) {
+          display: none;
+        }
+      }
+
+      .icon-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__accordion-description {
+    align-self: flex-start;
+    font-size: 1.5rem;
+    line-height: 1.47;
+    font-weight: bold;
+    text-align: left;
+    margin-top: -6px;
+    @include breakpoint(tablet) {
+      font-size: 2.2rem;
+      line-height: 1.18;
+      margin-top: 6px;
+    }
+  }
+
+  &__accordion-content {
+    display: none;
+    padding: 0 40px 0 40px;
+    font-size: 1.4rem;
+    line-height: 1.571;
+    @include breakpoint(tablet) {
+      font-size: 1.8rem;
+      line-height: 1.44;
+    }
+
+    &.open {
+      display: block;
+      padding: 20px 40px 40px;
+      @include breakpoint(tablet) {
+        padding: 20px 40px 40px 80px;
+      }
+    }
+  }
+}
