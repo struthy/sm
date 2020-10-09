@@ -1,23 +1,7 @@
 .accordion {
-  // &__pre {
-  //   font-size: 1.2rem;
-  //   letter-spacing: 0.2px;
-  //   line-height: 1.33;
-  //   color: $color-i;
-  //   font-weight: 900;
-  //   text-transform: uppercase;
-  // }
-
-  // &__heading {
-  //   color: $color-black;
-  //   font-size: 2.2rem;
-  //   line-height: 1.36;
-  //   @include breakpoint(tablet) {
-  //     font-size: 3.6rem;
-  //     line-height: 1.33;
-  //   }
-  // }
-
+  //////////////////////////
+  // the container for all accordions
+  /////////////////////////
   &__container {
     list-style: none;
     margin: 0;
@@ -26,22 +10,23 @@
     position: relative;
     display: flex;
     flex-direction: column;
-
-    &--50 {
+    ///v2
+    &--v2 {
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
-
+  //////////////////////////
+  // each accordion
+  /////////////////////////
   &__accordion {
     position: relative;
     list-style: none;
     margin: 0;
     padding: 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 60px;
+
     &:before {
       content: " ";
       position: absolute;
@@ -69,26 +54,43 @@
         display: none;
       }
     }
-
-    &:last-child {
-      flex: 1 1 1px;
-      &:before {
-        height: 50%;
-        @include breakpoint(tablet) {
-          height: 80%;
+    /// v1
+    &--v1 {
+      &:last-child {
+        flex: 1 1 1px;
+        &:before {
+          height: 50%;
+          @include breakpoint(tablet) {
+            height: 50%;
+          }
         }
       }
     }
-
-    &--50 {
-      width: 50%;
-      flex: 0 1 50%;
-      &:before {
+    /// v2
+    &--v2 {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 60px;
+      flex-wrap: wrap;
+      &:before,
+      &:after {
         display: none;
+      }
+      flex-direction: row-reverse;
+      width: 100%;
+      flex: 0 1 100%;
+      margin-bottom: 12px;
+      @include breakpoint(tablet) {
+        width: 48%;
+        flex: 0 1 48%;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
       }
     }
   }
-
+  //////////////////////////
+  // the clickable area, button
+  /////////////////////////
   &__btn {
     padding: 0 40px 0 40px;
     display: flex;
@@ -109,8 +111,30 @@
         }
       }
     }
-  }
 
+    &--v1 {
+      margin-bottom: 36px;
+    }
+    ///v2
+    &--v2 {
+      position: relative;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #d8d8d8;
+      flex-direction: row-reverse;
+      height: fit-content;
+      @include breakpoint(tablet) {
+        flex-direction: row-reverse;
+        &:hover {
+          box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.07),
+            0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+  //////////////////////////
+  // the icon in clickable area
+  /////////////////////////
   &__toggle {
     border: 1px solid #d8d8d8;
     border-radius: 5px;
@@ -173,8 +197,36 @@
         transform: rotate(90deg);
       }
     }
-  }
+    ///v2
+    &--v2 {
+      border-radius: 0;
+      box-shadow: none;
+      border: 0;
+      background: transparent;
+      position: relative;
+      height: fit-content;
+      @include breakpoint(tablet) {
+        position: relative;
+        left: auto;
+        right: 0;
+        top: 0;
+      }
 
+      .icon-arrow {
+        transform: rotate(-90deg);
+        display: flex;
+      }
+
+      &.icon-open {
+        .icon-arrow {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  //////////////////////////
+  // text in clickable area
+  /////////////////////////
   &__description {
     align-self: flex-start;
     font-size: 1.5rem;
@@ -187,11 +239,22 @@
       line-height: 1.18;
       margin-top: 6px;
     }
+    ///// v2
+    &--v2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      line-height: 1.44;
+      @include breakpoint(tablet) {
+        font-size: 1.8rem;
+      }
+    }
   }
-
+  //////////////////////////
+  // the drop-downs
+  /////////////////////////
   &__content {
     display: none;
-    padding: 0 40px 0 40px;
+
     font-size: 1.4rem;
     line-height: 1.571;
     @include breakpoint(tablet) {
@@ -204,6 +267,27 @@
       padding: 20px 40px 40px;
       @include breakpoint(tablet) {
         padding: 20px 40px 40px 80px;
+      }
+    }
+
+    /////// v2
+    &--v1 {
+      padding: 0 40px 0 40px;
+      &.open {
+        display: block;
+        padding: 0 40px 20px;
+        @include breakpoint(tablet) {
+          padding: 0 40px 20px 80px;
+        }
+      }
+    }
+
+    /////// v2
+    &--v2 {
+      padding: 0 40px 0 40px;
+      &.open {
+        display: block;
+        padding: 20px;
       }
     }
   }

@@ -7,12 +7,16 @@
     display: none;
     @include breakpoint(small-desktop) {
       display: flex;
-      flex: 1 1 50%;
+
       justify-content: center;
 
       picture {
         max-width: 284px;
       }
+    }
+
+    &--50 {
+      flex: 1 1 50%;
     }
 
     &--40 {
@@ -27,8 +31,11 @@
     position: relative;
     @include breakpoint(small-desktop) {
       display: flex;
-      flex: 1 1 50%;
       align-items: flex-start;
+    }
+
+    &--50 {
+      flex: 1 1 50%;
     }
 
     &--60 {
