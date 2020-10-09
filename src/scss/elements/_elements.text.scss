@@ -11,4 +11,8 @@ h2 {
 
 .lead {
   @include intro;
+  text-align: center;
+  @include breakpoint(tablet) {
+    text-align: left;
+  }
 }
