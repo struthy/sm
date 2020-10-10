@@ -8,8 +8,13 @@ import picturefill from "picturefill";
 import objectFit from "./modules/objectFit";
 import accordions from "./modules/accordions";
 
+///// vue bits
+import vueWeather from "./modules/vueWeather";
+
 svg4everybody();
 picturefill();
 accordions();
 objectFitImages();
 objectFit();
+
+vueWeather();
