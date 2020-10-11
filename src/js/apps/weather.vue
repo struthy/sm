@@ -10,15 +10,24 @@
       </label>
     </div>
 
-    <ul class="weather_description">
-      <li v-for="(description, i) in filteredItems" :key="'A' + i">
-        {{ description }}
+    <ul>
+      <li class="weather__details">
+        <!-- <ul>
+          <li v-for="(day, i) in days" :key="'B' + i">
+            {{ day | moment(" h:mm:ss a") }}
+          </li>
+        </ul> -->
+        <ul>
+          <li v-for="(description, i) in filteredDescriptions" :key="'A' + i">
+            {{ description }}
+          </li>
+        </ul>
       </li>
     </ul>
 
-    <p v-for="(temp, i) in temps" :key="'B' + i">
+    <!-- <p v-for="(temp, i) in temps" :key="'B' + i">
       {{ temp }}
-    </p>
+    </p> -->
   </div>
 </template>
 
@@ -34,7 +43,7 @@ export default {
       weather: {},
       temps: [],
       descriptions: [],
-      selectedType: [0],
+      selectedType: [],
     };
   },
 
@@ -70,7 +79,7 @@ export default {
     isAllActive() {
       return this.selectedType === "All";
     },
-    filteredItems: function() {
+    filteredDescriptions: function() {
       var _this = this;
       return _this.descriptions.filter(function(x) {
         return x;
@@ -79,13 +88,13 @@ export default {
   },
 
   methods: {
-    activeItem: function(category) {
-      if (this.selectedType === category) {
-        return "isActive";
-      } else {
-        return "";
-      }
-    },
+    // activeItem: function(category) {
+    //   if (this.selectedType === category) {
+    //     return "isActive";
+    //   } else {
+    //     return "";
+    //   }
+    // },
   },
 };
 </script>
