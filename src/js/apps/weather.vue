@@ -1,21 +1,22 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Get the Weather boy</h1>
-    {{ city }}
+    <h2>{{ city }}</h2>
 
-    <ul>
-      <li v-for="(day, index) in distinctDayDates" :key="index">
-        {{ day | moment("ddd") }}
-        <!-- {{ day | moment("ddd, MMMM Do YYYY, h:mm:ss a") }} -->
+    <div class="weather__days">
+      <label v-for="(day, i) in distinctDayDates" :key="i">
+        <input type="radio" v-model="selectedType" :value="day" />
+        {{ day }}
+      </label>
+    </div>
+
+    <ul class="weather_description">
+      <li v-for="(description, i) in filteredItems" :key="'A' + i">
+        {{ description }}
       </li>
     </ul>
 
-    <!-- <p v-for="(sun, index) in weather" :key="index">{{ sun.temp }}</p> -->
-    <p v-for="(description, index) in descriptions" :key="index">
-      {{ description }}
-    </p>
-
-    <p v-for="(temp, index) in temps" :key="index">
+    <p v-for="(temp, i) in temps" :key="'B' + i">
       {{ temp }}
     </p>
   </div>
@@ -28,12 +29,16 @@ export default {
     return {
       allItems: [],
       days: [],
+      times: [],
       city: [],
       weather: {},
       temps: [],
       descriptions: [],
+      selectedType: [0],
     };
   },
+
+  // https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=63739a03352f0a8eb85911fac41e3c50
 
   created() {
     axios
@@ -60,6 +65,26 @@ export default {
       return this.days
         .map((x) => new Date(x * 1000).toDateString())
         .filter((x, i, arr) => arr.indexOf(x) == i);
+    },
+
+    isAllActive() {
+      return this.selectedType === "All";
+    },
+    filteredItems: function() {
+      var _this = this;
+      return _this.descriptions.filter(function(x) {
+        return x;
+      });
+    },
+  },
+
+  methods: {
+    activeItem: function(category) {
+      if (this.selectedType === category) {
+        return "isActive";
+      } else {
+        return "";
+      }
     },
   },
 };
