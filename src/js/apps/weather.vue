@@ -7,6 +7,7 @@
         <li v-for="(day, index) in daysOfForecasts"
         :key="'day-'+ index"
         class="weather__day">
+
           <label
             class="newsEvents__label"
             :value="day.dateString" 
@@ -56,7 +57,7 @@ export default {
   },
   computed: {
     APIURL: function() {
-      return `http://api.openweathermap.org/data/2.5/forecast?q=${this.cityName}&appid=${this.appId}`;
+      return `https://api.openweathermap.org/data/2.5/forecast?q=${this.cityName}&appid=${this.appId}`;
     },
 
     //// not used yet, but might come in handy

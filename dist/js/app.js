@@ -1886,6 +1886,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1900,7 +1901,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     APIURL: function APIURL() {
-      return "http://api.openweathermap.org/data/2.5/forecast?q=".concat(this.cityName, "&appid=").concat(this.appId);
+      return "https://api.openweathermap.org/data/2.5/forecast?q=".concat(this.cityName, "&appid=").concat(this.appId);
     },
     //// not used yet, but might come in handy
     filteredForecasts: function filteredForecasts() {
