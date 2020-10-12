@@ -100,6 +100,7 @@ export default {
           return i === firstOfTheDayIndex;
         });
 
+        // set today as selectedDay
         this.selectedDay = this.daysOfForecasts[0].dateString
 
     });
