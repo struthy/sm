@@ -9,17 +9,18 @@
           <label
           class="newsEvents__label"
           :value="day.dateString"
+          v-bind:checked="index === 0"
           >
             <input
               type="radio"
               class="newsEvents__radio"
               v-model="selectedDay"
               :value="day.dateString"
-              :checked="index === 0"
+              v-bind:checked="index === 0"
             />
             {{ day.dateString }}
           </label>
-          <ul>
+          <ul v-if="selectedDay === day.dateString">
             <li v-for="(forecast, index) in day.forecasts" :key="index" class="weather__details">
               {{ forecast.dt | moment("HH:mm") }}
               {{ forecast.weather[0].main }}
