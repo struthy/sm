@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="weather__heading">{{ cityName }}</h1>
-    <h2 class="weather__heading">Whats the Weather Like Oot There?</h2>
+    <h2 class="weather__heading">{{ cityName }}</h2>
+    <h3 class="weather__heading">Whats the Weather Like Oot There?</h3>
     <div>
       <ul class="weather__days">
         <li v-for="(day, index) in daysOfForecasts"
@@ -19,7 +19,7 @@
               :value="day"
             />
             <div>
-            <span class="weather__day">{{ day.dateString | moment("ddd") }}</span>
+            <span>{{ day.dateString | moment("ddd") }}</span>
             <span class="weather__date">{{ day.dateString | moment("MM-DD-YY") }}</span>
             </div>
           </label>

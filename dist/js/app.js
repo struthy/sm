@@ -6689,11 +6689,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h1", { staticClass: "weather__heading" }, [
+    _c("h2", { staticClass: "weather__heading" }, [
       _vm._v(_vm._s(_vm.cityName))
     ]),
     _vm._v(" "),
-    _c("h2", { staticClass: "weather__heading" }, [
+    _c("h3", { staticClass: "weather__heading" }, [
       _vm._v("Whats the Weather Like Oot There?")
     ]),
     _vm._v(" "),
@@ -6736,7 +6736,7 @@ var render = function() {
                   }),
                   _vm._v(" "),
                   _c("div", [
-                    _c("span", { staticClass: "weather__day" }, [
+                    _c("span", [
                       _vm._v(_vm._s(_vm._f("moment")(day.dateString, "ddd")))
                     ]),
                     _vm._v(" "),

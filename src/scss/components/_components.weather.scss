@@ -1,6 +1,11 @@
 .weather {
+  &__body {
+    background-color: lighten($color-highlight, 52%);
+    padding-top: 40px;
+  }
   &__heading {
     text-align: center;
+    color: darken($color-highlight, 30%);
   }
   &__days {
     position: relative;
@@ -52,9 +57,6 @@
     }
   }
 
-  &__day {
-  }
-
   &__date {
     display: none;
     @include breakpoint(tablet) {
@@ -74,8 +76,16 @@
     list-style: none;
 
     li {
-      text-align: left;
+      text-align: center;
+      display: flex;
       width: 100%;
+      flex-direction: column;
+      border-bottom: 1px solid lighten($color-highlight, 45%);
+      margin-bottom: 20px;
+
+      img {
+        align-self: center;
+      }
     }
   }
 }
