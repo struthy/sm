@@ -2,26 +2,21 @@
   <div class="container">
     <h1>{{ cityName }}</h1>
     <h2>Whats the Weather Like Oot There?</h2>
-    
-
     <div class="weather__days">
-      <ul
-        v-for="(day, index) in daysOfForecasts"
-        :key="index"
-        class="weather__day"
-      >
-        <li>
+      <ul>
+        <li v-for="(day, index) in daysOfForecasts"
+        :key="'day-'+ index"
+        class="weather__day">
           <label
             class="newsEvents__label"
-            :value="day.dateString"
-            
+            :value="day.dateString" 
+            :class="day === selectedDay ? 'active' : ''"
           >
             <input
               type="radio"
               class="newsEvents__radio"
-              v-bind:class="day.dateString"
               v-model="selectedDay"
-              :value="day.dateString"
+              :value="day"
             />
             {{ day.dateString }}
           </label>
@@ -30,12 +25,12 @@
     </div>
 
     <div class="weather__details">
-      <div v-for="(day, index) in daysOfForecasts" :key="index">
-        <ul v-if="selectedDay === day.dateString" class="weather__details">
-          <li v-for="(forecast, index) in day.forecasts" :key="index">
+      <div>
+        <ul class="weather__details">
+          <li v-for="(forecast, index) in selectedDay.forecasts" :key="'forecast-'+ index">
             {{ forecast.dt | moment("HH:mm") }}
             {{ forecast.weather[0].main }}
-            <img v-bind:src="forecast.weather[0].icon | iconUrl" />
+            <img alt="forecast.weather.main" v-bind:src="forecast.weather[0].icon | iconUrl" />
           </li>
         </ul>
       </div>
@@ -46,7 +41,9 @@
 
 <script>
 import axios from "axios";
+
 export default {
+
   data() {
     return {
       cityName: "Glasgow",
@@ -54,7 +51,6 @@ export default {
       cityData: {},
       selectedDay: [],
       isActive: false,
-      descriptions: [],
       daysOfForecasts: [],
     };
   },
@@ -63,6 +59,7 @@ export default {
       return `http://api.openweathermap.org/data/2.5/forecast?q=${this.cityName}&appid=${this.appId}`;
     },
 
+    //// not used yet, but might come in handy
     filteredForecasts: function() {
       var _this = this;
       return _this.daysOfForecasts.filter(function(x) {
@@ -71,6 +68,7 @@ export default {
     },
   },
 
+  // good for string transforms
   filters: {
     iconUrl: function(value) {
       return `http://openweathermap.org/img/w/` + value + ".png";
@@ -84,6 +82,7 @@ export default {
       _vm.daysOfForecasts = response.data.list
         // map all the list items to a new object with a datestring property to filter/groupby
         // and a forecasts property with all the forecast information for that day
+        // unix timestamp is number of sec of sometime in past but js handles timestaps in milliseconds - x 1000 js understands
         .map((x, i, arr) => ({
           dateString: new Date(x.dt * 1000).toDateString(),
           forecasts: arr.filter((y) => {
@@ -92,17 +91,17 @@ export default {
             return d1 === d2;
           }),
         }))
-        // filter out the duplicate days
+        // filter out the duplicate days (by property not string)
         .filter(function(x, i, arr) {
-          var firstOfTheDayIndex = arr
-            .map((e) => e.dateString)
-            .indexOf(x.dateString);
-          return i === firstOfTheDayIndex;
+          var distinctDayIndex = arr
+          .map((y) => y.dateString)
+          .indexOf(x.dateString);
+          return i === distinctDayIndex;
+          // returns object
         });
 
         // set today as selectedDay
-        this.selectedDay = this.daysOfForecasts[0].dateString
-
+        this.selectedDay = this.daysOfForecasts[0]
     });
   },
 
