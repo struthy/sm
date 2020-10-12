@@ -1,5 +1,13 @@
 # sm
 
+## Weather App
+
+1. npm install
+2. npm run dev-mac (it will build on pc as well) will build the dist folder and run a local server.
+3. weather.html or http://localhost:3002/weather.html
+
+## Accordion Components
+
 1. npm install
 2. npm run dev-mac (it will build on pc as well) will build the dist folder and run a local server.
 3. index.html is the file you want to look at.
