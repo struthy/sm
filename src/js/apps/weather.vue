@@ -72,7 +72,7 @@ export default {
   // good for string transforms
   filters: {
     iconUrl: function(value) {
-      return `http://openweathermap.org/img/w/` + value + ".png";
+      return `https://openweathermap.org/img/w/` + value + ".png";
     },
   },
 

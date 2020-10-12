@@ -1915,7 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
   // good for string transforms
   filters: {
     iconUrl: function iconUrl(value) {
-      return "http://openweathermap.org/img/w/" + value + ".png";
+      return "https://openweathermap.org/img/w/" + value + ".png";
     }
   },
   created: function created() {
