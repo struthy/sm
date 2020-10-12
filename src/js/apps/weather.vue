@@ -14,14 +14,14 @@
           <label
             class="newsEvents__label"
             :value="day.dateString"
-            v-bind:checked="index === 0"
+            
           >
             <input
               type="radio"
               class="newsEvents__radio"
+              v-bind:class="day.dateString"
               v-model="selectedDay"
               :value="day.dateString"
-              v-bind:checked="index === 0"
             />
             {{ day.dateString }}
           </label>
@@ -63,12 +63,6 @@ export default {
       return `http://api.openweathermap.org/data/2.5/forecast?q=${this.cityName}&appid=${this.appId}`;
     },
 
-    filteredDescriptions: function() {
-      return this.descriptions.filter((x) => {
-        return x;
-      });
-    },
-
     filteredForecasts: function() {
       var _this = this;
       return _this.daysOfForecasts.filter(function(x) {
@@ -105,17 +99,11 @@ export default {
             .indexOf(x.dateString);
           return i === firstOfTheDayIndex;
         });
+
+     
+
     });
   },
 
-  methods: {
-    activeItem: function(category) {
-      if (this.selectedDay === category) {
-        return true;
-      } else {
-        return "";
-      }
-    },
-  },
 };
 </script>
