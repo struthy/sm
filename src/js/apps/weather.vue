@@ -1,15 +1,20 @@
 <template>
   <div class="container">
-    <h1>Get the Weather boy</h1>
-    <h2>{{ cityName }}</h2>
+    <h1>{{ cityName }}</h1>
+    <h2>Whats the Weather Like Oot There?</h2>
+    
 
-    <div>
-      <ul v-for="(day, index) in daysOfForecasts" :key="index">
+    <div class="weather__days">
+      <ul
+        v-for="(day, index) in daysOfForecasts"
+        :key="index"
+        class="weather__day"
+      >
         <li>
           <label
-          class="newsEvents__label"
-          :value="day.dateString"
-          v-bind:checked="index === 0"
+            class="newsEvents__label"
+            :value="day.dateString"
+            v-bind:checked="index === 0"
           >
             <input
               type="radio"
@@ -20,19 +25,25 @@
             />
             {{ day.dateString }}
           </label>
-          <ul v-if="selectedDay === day.dateString">
-            <li v-for="(forecast, index) in day.forecasts" :key="index" class="weather__details">
-              {{ forecast.dt | moment("HH:mm") }}
-              {{ forecast.weather[0].main }}
-              <img v-bind:src="forecast.weather[0].icon | iconUrl" />
-            </li>
-          </ul>
         </li>
       </ul>
     </div>
+
+    <div class="weather__details">
+      <div v-for="(day, index) in daysOfForecasts" :key="index">
+        <ul v-if="selectedDay === day.dateString" class="weather__details">
+          <li v-for="(forecast, index) in day.forecasts" :key="index">
+            {{ forecast.dt | moment("HH:mm") }}
+            {{ forecast.weather[0].main }}
+            <img v-bind:src="forecast.weather[0].icon | iconUrl" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    
   </div>
 </template>
- 
+
 <script>
 import axios from "axios";
 export default {
@@ -48,11 +59,11 @@ export default {
     };
   },
   computed: {
-    APIURL: function () {
+    APIURL: function() {
       return `http://api.openweathermap.org/data/2.5/forecast?q=${this.cityName}&appid=${this.appId}`;
     },
 
-    filteredDescriptions: function () {
+    filteredDescriptions: function() {
       return this.descriptions.filter((x) => {
         return x;
       });
@@ -63,12 +74,11 @@ export default {
       return _this.daysOfForecasts.filter(function(x) {
         return x.dateString === _this.selectedDay;
       });
-    }
+    },
   },
-  
 
   filters: {
-    iconUrl: function (value) {
+    iconUrl: function(value) {
       return `http://openweathermap.org/img/w/` + value + ".png";
     },
   },
@@ -89,7 +99,7 @@ export default {
           }),
         }))
         // filter out the duplicate days
-        .filter(function (x, i, arr) {
+        .filter(function(x, i, arr) {
           var firstOfTheDayIndex = arr
             .map((e) => e.dateString)
             .indexOf(x.dateString);
@@ -97,7 +107,6 @@ export default {
         });
     });
   },
-
 
   methods: {
     activeItem: function(category) {
@@ -107,10 +116,6 @@ export default {
         return "";
       }
     },
-  }
+  },
 };
 </script>
-
-
-
-
