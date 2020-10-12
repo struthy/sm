@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394" height="692" viewBox="0 0 394 692">
+    <defs>
+        <filter id="prefix__a" width="168.8%" height="133.4%" x="-34.4%" y="-13.1%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+            <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"/>
+            <feOffset dy="21" in="SourceAlpha" result="shadowOffsetOuter2"/>
+            <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="28.5"/>
+            <feColorMatrix in="shadowBlurOuter2" result="shadowMatrixOuter2" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="shadowMatrixOuter2"/>
+            </feMerge>
+        </filter>
+        <filter id="prefix__d" width="103.2%" height="101.5%" x="-1.6%" y="-.8%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="2.5"/>
+            <feOffset dy="-4" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0735960145 0"/>
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner2" stdDeviation=".5"/>
+            <feOffset dy="-1" in="shadowBlurInner2" result="shadowOffsetInner2"/>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/>
+            <feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 0.24313726 0 0 0 0 0.22352941 0 0 0 0 0.47843137 0 0 0 0.201002038 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"/>
+                <feMergeNode in="shadowMatrixInner2"/>
+            </feMerge>
+        </filter>
+        <filter id="prefix__f" width="101.2%" height="100.5%" x="-.6%" y="-.3%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+            <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0713598279 0"/>
+        </filter>
+        <path id="prefix__b" d="M39.303 0h203.394C264.403 0 282 17.312 282 38.667v502.666C282 562.688 264.403 580 242.697 580H39.303C17.597 580 0 562.688 0 541.333V38.667C0 17.312 17.597 0 39.303 0z"/>
+        <path id="prefix__c" d="M40.571 0H243.43C265.836 0 284 18.149 284 40.536v502.928C284 565.85 265.836 584 243.429 584H40.57C18.164 584 0 565.851 0 543.464V40.536C0 18.15 18.164 0 40.571 0z"/>
+        <path id="prefix__e" d="M27.52 0h26.144c2.293 0 3.44 1.145 3.44 3.436v2.062c0 7.97 6.469 14.43 14.448 14.43h114.896c7.98 0 14.448-6.46 14.448-14.43V3.436c0-2.29 1.147-3.436 3.44-3.436h26.144C245.679 0 258 12.307 258 27.488v503.024C258 545.693 245.679 558 230.48 558H27.52C12.321 558 0 545.693 0 530.512V27.488C0 12.307 12.321 0 27.52 0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(55 33)">
+        <use fill="#000" filter="url(#prefix__a)" opacity=".4" transform="translate(1 2)" xlink:href="#prefix__b"/>
+        <use fill="#F4F5F7" xlink:href="#prefix__c"/>
+        <use fill="#000" filter="url(#prefix__d)" xlink:href="#prefix__c"/>
+        <path fill="#E0E1E3" d="M123.925 18.035h36.15c1.425 0 2.58 1.153 2.58 2.575 0 1.422-1.155 2.574-2.58 2.574h-36.15c-1.425 0-2.58-1.152-2.58-2.574s1.155-2.575 2.58-2.575z"/>
+        <g transform="translate(13 13)">
+            <use fill="#000" filter="url(#prefix__f)" xlink:href="#prefix__e"/>
+            <use fill="#000" xlink:href="#prefix__e"/>
+        </g>
+    </g>
+</svg>
