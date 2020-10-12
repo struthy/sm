@@ -100,7 +100,7 @@ export default {
           return i === firstOfTheDayIndex;
         });
 
-     
+        this.selectedDay = this.daysOfForecasts[0].dateString
 
     });
   },
