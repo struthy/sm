@@ -5,6 +5,7 @@
 1. npm install
 2. npm run dev-mac (it will build on pc as well) will build the dist folder and run a local server.
 3. weather.html or http://localhost:3002/weather.html
+4. Still to do - scss, show hide per day, transitions
 
 ## Accordion Components
 
