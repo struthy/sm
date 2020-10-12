@@ -3,13 +3,29 @@
     <h1>Get the Weather boy</h1>
     <h2>{{ cityName }}</h2>
 
-    <div v-for="day in daysOfForecasts">
-      <h5>{{ day.dateString }}</h5>
-      <ul>
-        <li v-for="forecast in day.forecasts" class="weather__details">
-          {{ forecast.dt | moment("HH:mm") }}
-          {{ forecast.weather[0].main }}
-          <img v-bind:src="forecast.weather[0].icon | iconUrl" />
+    <div>
+      <ul v-for="(day, index) in daysOfForecasts" :key="index">
+        <li>
+          <label
+          class="newsEvents__label"
+          :value="day.dateString"
+          >
+            <input
+              type="radio"
+              class="newsEvents__radio"
+              v-model="selectedDay"
+              :value="day.dateString"
+              :checked="index === 0"
+            />
+            {{ day.dateString }}
+          </label>
+          <ul>
+            <li v-for="(forecast, index) in day.forecasts" :key="index" class="weather__details">
+              {{ forecast.dt | moment("HH:mm") }}
+              {{ forecast.weather[0].main }}
+              <img v-bind:src="forecast.weather[0].icon | iconUrl" />
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
@@ -24,7 +40,8 @@ export default {
       cityName: "Glasgow",
       appId: "63739a03352f0a8eb85911fac41e3c50",
       cityData: {},
-      selectedType: [],
+      selectedDay: [],
+      isActive: false,
       descriptions: [],
       daysOfForecasts: [],
     };
@@ -33,20 +50,28 @@ export default {
     APIURL: function () {
       return `http://api.openweathermap.org/data/2.5/forecast?q=${this.cityName}&appid=${this.appId}`;
     },
-    isAllActive() {
-      return this.selectedType === "All";
-    },
+
     filteredDescriptions: function () {
       return this.descriptions.filter((x) => {
         return x;
       });
     },
+
+    filteredForecasts: function() {
+      var _this = this;
+      return _this.daysOfForecasts.filter(function(x) {
+        return x.dateString === _this.selectedDay;
+      });
+    }
   },
+  
+
   filters: {
     iconUrl: function (value) {
       return `http://openweathermap.org/img/w/` + value + ".png";
     },
   },
+
   created() {
     var _vm = this;
     axios.get(this.APIURL).then((response) => {
@@ -71,6 +96,17 @@ export default {
         });
     });
   },
+
+
+  methods: {
+    activeItem: function(category) {
+      if (this.selectedDay === category) {
+        return true;
+      } else {
+        return "";
+      }
+    },
+  }
 };
 </script>
 
