@@ -1887,6 +1887,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -6684,13 +6689,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h1", [_vm._v(_vm._s(_vm.cityName))]),
+    _c("h1", { staticClass: "weather__heading" }, [
+      _vm._v(_vm._s(_vm.cityName))
+    ]),
     _vm._v(" "),
-    _c("h2", [_vm._v("Whats the Weather Like Oot There?")]),
+    _c("h2", { staticClass: "weather__heading" }, [
+      _vm._v("Whats the Weather Like Oot There?")
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "weather__days" }, [
+    _c("div", [
       _c(
         "ul",
+        { staticClass: "weather__days" },
         _vm._l(_vm.daysOfForecasts, function(day, index) {
           return _c(
             "li",
@@ -6699,7 +6709,7 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass: "newsEvents__label",
+                  staticClass: "weather__label",
                   class: day === _vm.selectedDay ? "active" : "",
                   attrs: { value: day.dateString }
                 },
@@ -6713,7 +6723,6 @@ var render = function() {
                         expression: "selectedDay"
                       }
                     ],
-                    staticClass: "newsEvents__radio",
                     attrs: { type: "radio" },
                     domProps: {
                       value: day,
@@ -6725,7 +6734,18 @@ var render = function() {
                       }
                     }
                   }),
-                  _vm._v("\n          " + _vm._s(day.dateString) + "\n        ")
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "weather__day" }, [
+                      _vm._v(_vm._s(_vm._f("moment")(day.dateString, "ddd")))
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "weather__date" }, [
+                      _vm._v(
+                        _vm._s(_vm._f("moment")(day.dateString, "MM-DD-YY"))
+                      )
+                    ])
+                  ])
                 ]
               )
             ]
@@ -6743,11 +6763,11 @@ var render = function() {
           _vm._l(_vm.selectedDay.forecasts, function(forecast, index) {
             return _c("li", { key: "forecast-" + index }, [
               _vm._v(
-                "\n          " +
+                "\n         \n          " +
                   _vm._s(_vm._f("moment")(forecast.dt, "HH:mm")) +
                   "\n          " +
                   _vm._s(forecast.weather[0].main) +
-                  "\n          "
+                  "\n           \n          "
               ),
               _c("img", {
                 attrs: {

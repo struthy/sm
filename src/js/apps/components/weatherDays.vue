@@ -1,11 +1,11 @@
 <template>
-   <div class="weather__days">
-      <ul
+   <div >
+      <ul class="weather__days"
         v-for="(day, index) in daysOfForecasts"
         :key="index"
-        class="weather__day"
+        
       >
-        <li>
+        <li class="weather__day">
           <label
             class="newsEvents__label"
             :value="day.dateString"

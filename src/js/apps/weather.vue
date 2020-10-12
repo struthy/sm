@@ -1,26 +1,29 @@
 <template>
   <div class="container">
-    <h1>{{ cityName }}</h1>
-    <h2>Whats the Weather Like Oot There?</h2>
-    <div class="weather__days">
-      <ul>
+    <h1 class="weather__heading">{{ cityName }}</h1>
+    <h2 class="weather__heading">Whats the Weather Like Oot There?</h2>
+    <div>
+      <ul class="weather__days">
         <li v-for="(day, index) in daysOfForecasts"
         :key="'day-'+ index"
         class="weather__day">
 
           <label
-            class="newsEvents__label"
+            class="weather__label"
             :value="day.dateString" 
             :class="day === selectedDay ? 'active' : ''"
           >
             <input
               type="radio"
-              class="newsEvents__radio"
               v-model="selectedDay"
               :value="day"
             />
-            {{ day.dateString }}
+            <div>
+            <span class="weather__day">{{ day.dateString | moment("ddd") }}</span>
+            <span class="weather__date">{{ day.dateString | moment("MM-DD-YY") }}</span>
+            </div>
           </label>
+          
         </li>
       </ul>
     </div>
@@ -29,8 +32,10 @@
       <div>
         <ul class="weather__details">
           <li v-for="(forecast, index) in selectedDay.forecasts" :key="'forecast-'+ index">
+           
             {{ forecast.dt | moment("HH:mm") }}
             {{ forecast.weather[0].main }}
+             
             <img alt="forecast.weather.main" v-bind:src="forecast.weather[0].icon | iconUrl" />
           </li>
         </ul>
